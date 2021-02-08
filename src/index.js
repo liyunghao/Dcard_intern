@@ -1,21 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Router, Route, Link,  hashHistory} from 'react-router';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './index.css';
-import App from './App';
 import Main from './views/main';
-
+import Banner from './components/banner'
 
 ReactDOM.render(
   <Router>
+    <Banner/>
     <Switch>
-      <Route exact path="/"> </Route>
-      <Route path=""></Route>
+      <Route exact path="/"> <Main/> </Route>
+      {/* <Route exact path="scenicSpot"> <displayAll/> </Route>
+      <Route path="scenicSpot/:cityName"> <displayCity/> </Route> */}
     </Switch>
-  </Router>
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+
+  </Router>,
   document.getElementById('root')
 );
+
 
