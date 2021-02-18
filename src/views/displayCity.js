@@ -1,24 +1,23 @@
 import React from 'react'
-
+import { fetchAll, fetchCity} from '../apis/api'
 const cityList = [ 'None', 'Taipei', 'NewTaipei', 'Taoyuan', 'Taichung', 'Tainan', 'Kaohsiung', 'Keelung', 
                         'Hsinchu', 'HsinchuCounty', 'MiaoliCounty', 'ChanghuaCounty', 'NantouCounty', 'YunlinCounty',
                         'ChiayiCounty', 'Chiayi', 'PingtungCounty', 'YilanCounty', 'HualienCounty', 'TaitungCounty', 
                         'KinmenCounty', 'PenghuCounty', 'LienchiangCounty'
 ]
-class displayCity extends React.Component {
+class DisplayCity extends React.Component {
+	constructor(props) {
+		super(props)
+	}
 	render() {
+		console.log(this.props.match)
+		console.log(this.props.match.params.city)
 		return (
 			<div className='container'>
-				<form>
-					<select>
-						{ cityList.map((list, index) => (
-							<option value={list}> {list} </option>
-						))}
-					</select>
-				</form>
+				this is displaycity
 			</div>
 		);
 	}
 }
 
-export default displayCity
+export default DisplayCity
