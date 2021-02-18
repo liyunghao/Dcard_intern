@@ -1,0 +1,31 @@
+.link{
+	color: aliceblue;
+	text-align: center;
+	width: 100px;
+}
+.link:hover {
+	color: aliceblue;
+}
+.dropdown{
+	color: aliceblue; 
+	display: flex;
+	cursor: pointer;	
+	text-align: center;
+	justify-content: center;
+}
+.dropbtn{
+	color: aliceblue;
+}
+.dropcontent{
+	display: none;
+	position: absolute;
+	padding-top: 40px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+.dropdown:hover .dropbtn{
+	color: aliceblue;
+}
+
+.dropdown:hover .dropcontent{
+	display: block;
+}
