@@ -1,5 +1,5 @@
 import React from 'react'
-import { fetchAll, fetchCity} from '../apis/api'
+import {fetchCity} from '../apis/api'
 const cityList = [ 'None', 'Taipei', 'NewTaipei', 'Taoyuan', 'Taichung', 'Tainan', 'Kaohsiung', 'Keelung', 
                         'Hsinchu', 'HsinchuCounty', 'MiaoliCounty', 'ChanghuaCounty', 'NantouCounty', 'YunlinCounty',
                         'ChiayiCounty', 'Chiayi', 'PingtungCounty', 'YilanCounty', 'HualienCounty', 'TaitungCounty', 
@@ -13,14 +13,29 @@ class DisplayCity extends React.Component {
 			top: 0,
 		}
 	}
-	componentDidMount
+	// componentDidMount() {
+	// 	var city = this.props.match.params.city;
+	// 	fetchCity(city, { params: {
+	// 		$top:30,
+	// 		$format: 'JSON',
+	// 	}})  .then (res => {
+	// 		console.log(res.data)
+	// 	})
+	// }
 
 	render() {
 		console.log(this.props.match)
 		console.log(this.props.match.params.city)
+		var city = this.props.match.params.city;
+		fetchCity(city, { params: {
+			$top:30,
+			$format: 'JSON',
+		}})  .then (res => {
+			console.log(res.data)
+		})
 		return (
 			<div className='container'>
-				this is displaycity
+				this is {this.props.match.params.city}
 			</div>
 		);
 	}

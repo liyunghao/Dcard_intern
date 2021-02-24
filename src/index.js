@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter as Router, Route, Switch, HashRouter} from 'react-router-dom';
+import { Route, Switch, HashRouter } from 'react-router-dom';
 import './index.css';
 import Main from './views/main';
 import DisplayAll from './views/displayAll'

@@ -21,6 +21,7 @@ class banner extends React.Component {
     }
     clearText = () => {
         this.setState({search: ''})
+        
     }
     filterlist() {
         var self = this
