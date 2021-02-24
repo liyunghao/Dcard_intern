@@ -8,7 +8,13 @@ const cityList = [ 'None', 'Taipei', 'NewTaipei', 'Taoyuan', 'Taichung', 'Tainan
 class DisplayCity extends React.Component {
 	constructor(props) {
 		super(props)
+		this.state = {
+			data: [],
+			top: 0,
+		}
 	}
+	componentDidMount
+
 	render() {
 		console.log(this.props.match)
 		console.log(this.props.match.params.city)
