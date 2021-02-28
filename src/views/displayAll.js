@@ -5,15 +5,14 @@ class DisplayAll extends React.Component {
 		super(props);
 		
 	}
-	componentDidMount() {
+	
+	render() {
 		fetchAll( { params: {
 			$top:30,
 			$format:'JSON'
 		}}) .then( res => {
 			console.log(res.data)
 		})
-	}
-	render() {
 		return (
 			<div className='container'>
 				this is displayAll
