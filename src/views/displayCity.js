@@ -13,26 +13,30 @@ class DisplayCity extends React.Component {
 			top: 0,
 		}
 	}
-	// componentDidMount() {
-	// 	var city = this.props.match.params.city;
-	// 	fetchCity(city, { params: {
-	// 		$top:30,
-	// 		$format: 'JSON',
-	// 	}})  .then (res => {
-	// 		console.log(res.data)
-	// 	})
-	// }
-
-	render() {
-		console.log(this.props.match)
-		console.log(this.props.match.params.city)
+	componentDidMount() {
 		var city = this.props.match.params.city;
+		var self = this
 		fetchCity(city, { params: {
 			$top:30,
 			$format: 'JSON',
 		}})  .then (res => {
 			console.log(res.data)
+			//self.setState({ data: res.data })
+
 		})
+	}
+	componentDidUpdate() {
+		var city = this.props.match.params.city;
+		var self = this;
+		fetchCity(city, { params: {
+			$top:30,
+			$format: 'JSON',
+		}})  .then (res => {
+			console.log(res.data)
+			//self.setState({data: res.data})
+		})
+	}
+	render() {
 		return (
 			<div className='container'>
 				this is {this.props.match.params.city}
