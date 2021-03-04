@@ -6,6 +6,9 @@
 .link:hover {
 	color: aliceblue;
 }
+.name {
+	width: 12%
+}
 .dropdown{
 	color: aliceblue; 
 	display: flex;
@@ -28,4 +31,9 @@
 
 .dropdown:hover .dropcontent{
 	display: block;
+}
+.dropdown:hover .item{
+	background-color: azure;
+	margin: 3px;
+	border: black 1px solid;
 }

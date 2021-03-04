@@ -28,8 +28,9 @@ class banner extends React.Component {
         var updateList = cityList.filter(  function (name) {
                 return name.toLowerCase().startsWith(self.state.search.toLowerCase()) == true
             })
-        var data = updateList.map(list => (
-            <Dropdown.Item> <Link to={`/scenicSpot/${list}`} onClick={this.clearText}> {list}</Link></Dropdown.Item>
+        var data = updateList.map((list, idx) => (
+            <div className='item' key={idx}> <Link to={`/scenicSpot/${list}`} onClick={this.clearText}> {list}</Link></div>
+            // change Dropdown.Item 
             ))
         return data
     }
@@ -43,13 +44,13 @@ class banner extends React.Component {
                     <input value={this.state.search} onChange={this.handleChange}/>
                     {this.filterlist()}
                 </DropdownButton> */}
-                <a className='dropdown col-3 link'>
+                <div className='dropdown col-3 link'>
                     <a className='dropbtn'>Choose City</a>
                     <div className='dropcontent'>
                         <input value={this.state.search} onChange={this.handleChange}/>
                         {this.filterlist()}
                     </div>
-                </a>
+                </div>
             </Navbar>
         );
     }

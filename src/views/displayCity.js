@@ -13,33 +13,48 @@ class DisplayCity extends React.Component {
 			top: 0,
 		}
 	}
-	componentDidMount() {
-		var city = this.props.match.params.city;
+	fetchData(city) {
 		var self = this
 		fetchCity(city, { params: {
 			$top:30,
 			$format: 'JSON',
 		}})  .then (res => {
-			console.log(res.data)
-			//self.setState({ data: res.data })
-
+			self.setState({ data: res.data })
 		})
 	}
-	componentDidUpdate() {
-		var city = this.props.match.params.city;
-		var self = this;
-		fetchCity(city, { params: {
-			$top:30,
-			$format: 'JSON',
-		}})  .then (res => {
-			console.log(res.data)
-			//self.setState({data: res.data})
-		})
+	componentDidMount() {
+		this.fetchData(this.props.match.params.city)
+	}
+	componentWillReceiveProps(nextProps){
+		const id = nextProps.match.params.city
+		if (id != this.props.match.params.city) {
+			this.fetchData(id)
+		}
+	}
+	tableContent(){
+		var data = this.state.data.map((item, idx) => (
+			<tr key={idx}>
+				<td className='name'>{item.Name}</td>
+				<td>{item.DescriptionDetail}</td>
+			</tr>
+		))
+		return data
 	}
 	render() {
 		return (
 			<div className='container'>
 				this is {this.props.match.params.city}
+				<table className='table table-striped table-bordered'>
+					<thead>
+						<tr>
+							<th scope='col'>Name</th>
+							<th scope='col'>Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						{this.tableContent()}
+					</tbody>
+				</table>
 			</div>
 		);
 	}
